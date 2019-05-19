@@ -12,7 +12,6 @@ const Dishes = require('../models/dishes');
 dishRouter.route('/')
 .options(cors.corsWithOptions, (req, res) => { res.sendStatus(200); })
 .get(cors.cors, (req, res, next) => {
-   console.log(req);
    Dishes.find({})
     .populate('comments.author')
       .then((dishes) => {
